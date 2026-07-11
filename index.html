@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>OverHall</title>
+<meta name="theme-color" content="#22262b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="OverHall">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" href="data:image/png;base64,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">
+<link rel="manifest" href='data:application/manifest+json,{"name":"Project OverHall","short_name":"OverHall","display":"standalone","background_color":"%2322262b","theme_color":"%2322262b","start_url":"."}'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600&family=Barlow:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --slate:#22262b;
+    --panel:#2b3036;
+    --panel-2:#333940;
+    --line:#3d444c;
+    --chalk:#eef0ee;
+    --dim:#8a9098;
+    --dimmer:#666c74;
+    --brass:#c39a4e;
+    --brass-deep:#8a6c33;
+    --radius:3px;
+    --ease:cubic-bezier(.2,.7,.3,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{-webkit-text-size-adjust:100%;background:var(--slate)}
+  body{
+    background:var(--slate);
+    color:var(--chalk);
+    font-family:'Barlow',system-ui,sans-serif;
+    font-size:16px;
+    line-height:1.45;
+    padding:calc(20px + env(safe-area-inset-top)) 16px calc(64px + env(safe-area-inset-bottom));
+    max-width:720px;
+    margin:0 auto;
+    transition:background .6s var(--ease);
+    -webkit-user-select:none;user-select:none;
+  }
+  body.floor{background:#2b2620}
+  input{-webkit-user-select:text;user-select:text}
+
+  .eyebrow{
+    font-family:'Barlow Condensed',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.18em;
+    font-size:12px;
+    color:var(--dim);
+    font-weight:500;
+  }
+
+  header{padding-bottom:18px;border-bottom:1px solid var(--brass-deep);margin-bottom:22px}
+  h1{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:clamp(30px,8vw,44px);
+    line-height:1;
+    color:var(--chalk);
+    text-shadow:0 1px 0 rgba(0,0,0,.6);
+  }
+  header p{color:var(--dim);font-size:14px;margin-top:8px;max-width:44ch}
+
+  .modes{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:8px}
+  .mode{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    color:var(--dim);
+    font-family:'Barlow Condensed',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-weight:600;
+    font-size:14px;
+    padding:14px 6px 12px;
+    min-height:52px;
+    cursor:pointer;
+    transition:all .25s var(--ease);
+  }
+  .mode small{display:block;font-family:'Barlow',sans-serif;text-transform:none;letter-spacing:0;font-weight:400;font-size:11px;color:var(--dimmer);margin-top:3px}
+  .mode[aria-pressed="true"]{background:var(--brass);border-color:var(--brass);color:#20242a}
+  .mode[aria-pressed="true"] small{color:#4a3c1c}
+  .mode-note{font-size:14px;color:var(--dim);margin-bottom:26px;min-height:20px}
+  .mode-note b{color:var(--chalk);font-weight:500}
+
+  .battery{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:16px;
+    margin-bottom:22px;
+  }
+  .battery-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+  .battery-count{font-family:'IBM Plex Mono',monospace;font-size:26px;color:var(--brass);letter-spacing:-.02em}
+  .cells{display:flex;gap:3px;height:26px;margin-bottom:12px}
+  .cell{flex:1;border:1px solid var(--line);border-radius:1px;background:transparent;transition:background .3s var(--ease)}
+  .cell.on{background:var(--brass);border-color:var(--brass)}
+  .cell.low{background:#b4553c;border-color:#b4553c}
+  .battery-ctl{display:flex;gap:8px;align-items:center}
+  .battery-cap{font-size:13px;color:var(--dimmer);flex:1}
+
+  button{font-family:inherit;font-size:inherit;color:inherit;cursor:pointer;background:none;border:none}
+  .btn{
+    background:var(--panel-2);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    color:var(--chalk);
+    font-family:'Barlow Condensed',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    font-size:13px;
+    font-weight:500;
+    padding:10px 14px;
+    min-height:42px;
+    transition:border-color .2s var(--ease),background .2s var(--ease);
+  }
+  .btn:active{border-color:var(--brass)}
+  .btn.brass{background:var(--brass);border-color:var(--brass);color:#20242a}
+  .btn.sq{min-width:44px;padding:10px 0;text-align:center}
+  :focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+
+  .daily{
+    display:flex;gap:14px;align-items:center;
+    background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--brass);
+    border-radius:var(--radius);padding:14px 16px;margin-bottom:26px;width:100%;text-align:left;
+  }
+  .tick{
+    width:26px;height:26px;flex:0 0 26px;border:1px solid var(--dimmer);border-radius:2px;
+    display:grid;place-items:center;font-size:15px;color:transparent;transition:all .2s var(--ease);
+  }
+  .daily.done .tick{background:var(--brass);border-color:var(--brass);color:#20242a}
+  .daily-txt strong{display:block;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:15px;font-weight:600}
+  .daily-txt span{font-size:13px;color:var(--dim)}
+  .daily.done .daily-txt strong{color:var(--brass)}
+
+  .sprint{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin-bottom:26px}
+  .clock{font-family:'IBM Plex Mono',monospace;font-size:48px;line-height:1;text-align:center;margin:6px 0 14px;letter-spacing:-.02em}
+  .clock.ringing{color:var(--brass)}
+  @media (prefers-reduced-motion:no-preference){
+    .clock.ringing{animation:pulse 1s ease-in-out infinite}
+  }
+  @keyframes pulse{50%{opacity:.35}}
+  .durs{display:flex;gap:6px;justify-content:center;margin-bottom:12px}
+  .dur{border:1px solid var(--line);border-radius:var(--radius);padding:7px 13px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--dim);min-height:40px}
+  .dur[aria-pressed="true"]{border-color:var(--brass);color:var(--brass)}
+  .sprint-row{display:flex;gap:8px}
+  .sprint-row .btn{flex:1}
+  .target{text-align:center;font-size:14px;color:var(--dim);margin-top:12px;min-height:20px}
+  .target b{color:var(--chalk);font-weight:500}
+
+  .board-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+  .tally{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--dim)}
+  .board{border-top:1px solid var(--line);margin-bottom:10px;transition:opacity .5s var(--ease)}
+  body.floor .board,body.floor .sprint{opacity:.22;pointer-events:none}
+  .room{border-bottom:1px solid var(--line);padding:14px 0}
+  .room h2{
+    font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.14em;
+    font-size:14px;font-weight:600;color:var(--dim);margin-bottom:10px;display:flex;justify-content:space-between;
+  }
+  .room.clear h2{color:var(--brass)}
+  .room h2 em{font-style:normal;font-family:'IBM Plex Mono',monospace;letter-spacing:0;font-size:12px;color:var(--dimmer)}
+  .zones{display:flex;flex-wrap:wrap;gap:6px}
+  .zone{
+    border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);
+    padding:9px 12px;min-height:42px;font-size:14px;color:var(--chalk);
+    transition:all .18s var(--ease);
+  }
+  .zone.done{background:var(--brass);border-color:var(--brass);color:#20242a;font-weight:500}
+  .zone.hint{border-color:var(--brass);box-shadow:0 0 0 1px var(--brass)}
+  .zone .x{display:none}
+  body.editing .zone .x{display:inline;margin-left:8px;color:#b4553c;font-weight:600}
+  .addzone{border:1px dashed var(--line);border-radius:var(--radius);padding:9px 12px;min-height:42px;color:var(--dimmer);font-size:14px;display:none}
+  body.editing .addzone{display:block}
+
+  .rest{display:none;background:#3a3129;border:1px solid #5c4c33;border-left:3px solid var(--brass);border-radius:var(--radius);padding:20px;margin-bottom:26px}
+  body.floor .rest{display:block}
+  .rest h2{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:16px;font-weight:600;color:var(--brass);margin-bottom:10px}
+  .rest p{font-size:15px;color:#d8cdb8;margin-bottom:8px}
+  .rest p:last-child{margin-bottom:0;color:#9d9179;font-size:13px}
+
+  .list{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin-bottom:20px}
+  .list h2{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:14px;font-weight:600;color:var(--dim);margin-bottom:4px}
+  .list .sub{font-size:13px;color:var(--dimmer);margin-bottom:12px}
+  .list ul{list-style:none}
+  .list li{display:flex;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .list li:last-child{border-bottom:none}
+  .list li span{flex:1}
+  .list li.done span{color:var(--dimmer);text-decoration:line-through}
+  .list .drop{color:var(--dimmer);font-size:20px;line-height:1;padding:6px 8px}
+  .addrow{display:flex;gap:8px;margin-top:12px}
+  input[type=text]{
+    flex:1;min-width:0;background:var(--slate);border:1px solid var(--line);border-radius:var(--radius);
+    color:var(--chalk);font-family:inherit;font-size:16px;padding:11px 12px;min-height:44px;
+  }
+  input[type=text]:focus{outline:none;border-color:var(--brass)}
+  .empty{color:var(--dimmer);font-size:14px;padding:6px 0}
+
+  footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  footer p{flex:1;min-width:180px;font-size:13px;color:var(--dimmer)}
+  #bank{display:none}
+  body.bank #bank{display:block}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Project OverHall</h1>
+  <p>A control panel for the house. Set the gear to match today's capacity, then work the board one zone at a time.</p>
+</header>
+
+<div class="modes" role="group" aria-label="Capacity mode">
+  <button class="mode" data-mode="bank" aria-pressed="false">Bank<small>high capacity</small></button>
+  <button class="mode" data-mode="run" aria-pressed="true">Run<small>ordinary day</small></button>
+  <button class="mode" data-mode="floor" aria-pressed="false">Floor<small>running on empty</small></button>
+</div>
+<p class="mode-note" id="modeNote"></p>
+
+<section class="battery" aria-label="Meals banked">
+  <div class="battery-top">
+    <span class="eyebrow">Meals in the freezer</span>
+    <span class="battery-count" id="mealCount">0</span>
+  </div>
+  <div class="cells" id="cells"></div>
+  <div class="battery-ctl">
+    <p class="battery-cap" id="batteryCap"></p>
+    <button class="btn sq" id="mealDown" aria-label="Ate one">−</button>
+    <button class="btn sq brass" id="mealUp" aria-label="Banked one">+</button>
+  </div>
+</section>
+
+<div class="rest">
+  <h2>The floor is the whole job</h2>
+  <p>Pull a dinner from the freezer. Load the dishwasher. Press start.</p>
+  <p>Nothing gets cooked, so nothing gets dirty. The board keeps everything you didn't do — it'll still be there. This counts as a day the system ran.</p>
+</div>
+
+<button class="daily" id="daily">
+  <span class="tick">✓</span>
+  <span class="daily-txt">
+    <strong>Closing shift</strong>
+    <span id="dailySub">Kitchen back to baseline — right after the cat is fed.</span>
+  </span>
+</button>
+
+<section class="sprint" aria-label="Sprint timer">
+  <span class="eyebrow">Sprint — one zone, one pass</span>
+  <div class="clock" id="clock">30:00</div>
+  <div class="durs" role="group" aria-label="Sprint length">
+    <button class="dur" data-min="20" aria-pressed="false">20m</button>
+    <button class="dur" data-min="30" aria-pressed="true">30m</button>
+    <button class="dur" data-min="40" aria-pressed="false">40m</button>
+  </div>
+  <div class="sprint-row">
+    <button class="btn brass" id="startBtn">Start</button>
+    <button class="btn" id="pickBtn">Pick a zone for me</button>
+  </div>
+  <p class="target" id="target">When it rings, that zone is done for this pass — even if it isn't perfect.</p>
+</section>
+
+<div class="board-head">
+  <span class="eyebrow">The board</span>
+  <span class="tally" id="tally"></span>
+</div>
+<div class="board" id="board"></div>
+
+<section class="list" id="bank">
+  <h2>Banking</h2>
+  <p class="sub">What high-capacity you builds so Floor you can just press play.</p>
+  <ul id="bankList"></ul>
+  <div class="addrow">
+    <input type="text" id="bankInput" placeholder="Cook 4 dinners for the freezer">
+    <button class="btn" id="bankAdd">Add</button>
+  </div>
+</section>
+
+<section class="list">
+  <h2>Parking lot</h2>
+  <p class="sub">The tangent goes here so it stops pulling. Don't chase it — park it.</p>
+  <ul id="parkList"></ul>
+  <div class="addrow">
+    <input type="text" id="parkInput" placeholder="Sort the box in the closet…">
+    <button class="btn" id="parkAdd">Park it</button>
+  </div>
+</section>
+
+<footer>
+  <p>No streaks, no scores. A skipped day costs nothing — pick any cell and start again.</p>
+  <button class="btn" id="editBtn">Edit board</button>
+  <button class="btn" id="resetBtn">New pass</button>
+</footer>
+
+<script>
+const ROOMS = [
+  ['Dining Room',['Cat stuff','Mail','Baskets','Table','Jugs/cartons','Sweep','Vacuum','Mop','Dust']],
+  ['Kitchen',['Counters','Island','Pots & pans','In cabinets','Dishes','Range','Fridge','Sweep','Vacuum','Mop','Rug','Dust']],
+  ['Half Bath',['Laundry on dryer','Vanity','Toilet','Sweep','Vacuum','Mop','Rug','Misc']],
+  ['Living Room',['Green chair','Alligator chair','Credenza','Coffee table','Couch','Sweep','Vacuum','Mop','Rug','Dust','Tools']],
+  ['Stairs',['VAAAACCCUUUMMM']],
+  ['Landing',['Vacuum','Rug','Mop','Dust']],
+  ['Bathroom',['Vanity','Tub','Vacuum','Mop','Towels','Misc']],
+  ['Bedroom',['Closet — clothes','Closet — stuff','Bed','Rug','Dresser','Desk','Vacuum','Mop/Dust']],
+  ['Guest Bedroom',['Clothes','Nightstand','Bed','Floor','Vacuum','Mop','Dust','Misc']]
+];
+const NOTES = {
+  bank:'<b>Bank.</b> Cook ahead, restock, run the decision-heavy dejunk sprints. Build what Floor you will coast on.',
+  run:'<b>Run.</b> Closing shift holds the line. Zones when there\'s room for them.',
+  floor:'<b>Floor.</b> The board is asleep. Frozen dinner, dishwasher, that\'s it.'
+};
+const CAPS = {
+  bank:'Every meal you bank is a night Floor you doesn\'t cook — or clean.',
+  run:'Keep a few in reserve. The valley doesn\'t announce itself.',
+  floor:'Draw one down. That\'s what it\'s for.'
+};
+const KEY='overhall.state.v1';
+let S={mode:'run',done:{},rooms:null,meals:0,park:[],bank:[],daily:{date:'',done:false},dur:30};
+const today=()=>new Date().toDateString();
+const $=id=>document.getElementById(id);
+
+function load(){
+  try{const raw=localStorage.getItem(KEY);if(raw)S={...S,...JSON.parse(raw)};}catch(e){}
+  if(!S.rooms)S.rooms=ROOMS.map(([n,z])=>[n,[...z]]);
+  if(S.daily.date!==today())S.daily={date:today(),done:false};
+  left=S.dur*60;
+  document.querySelectorAll('.dur').forEach(x=>x.setAttribute('aria-pressed',+x.dataset.min===S.dur));
+  paint();renderAll();
+}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+
+function renderBoard(){
+  const b=$('board');b.innerHTML='';let done=0,total=0;
+  S.rooms.forEach(([name,zones],ri)=>{
+    const d=zones.filter(z=>S.done[ri+'|'+z]).length;
+    done+=d;total+=zones.length;
+    const sec=document.createElement('section');
+    sec.className='room'+(zones.length&&d===zones.length?' clear':'');
+    const h=document.createElement('h2');
+    h.innerHTML='<span>'+name+'</span><em>'+d+'/'+zones.length+'</em>';
+    sec.appendChild(h);
+    const wrap=document.createElement('div');wrap.className='zones';
+    zones.forEach(z=>{
+      const k=ri+'|'+z;
+      const btn=document.createElement('button');
+      btn.className='zone'+(S.done[k]?' done':'');
+      btn.dataset.k=k;
+      btn.innerHTML=z+'<span class="x" data-del="1">✕</span>';
+      btn.onclick=e=>{
+        if(document.body.classList.contains('editing')&&e.target.dataset.del){
+          S.rooms[ri][1]=S.rooms[ri][1].filter(x=>x!==z);delete S.done[k];save();renderBoard();return;
+        }
+        S.done[k]=!S.done[k];save();renderBoard();
+      };
+      wrap.appendChild(btn);
+    });
+    const add=document.createElement('button');
+    add.className='addzone';add.textContent='+ zone';
+    add.onclick=()=>{const v=prompt('New zone in '+name);if(v&&v.trim()){S.rooms[ri][1].push(v.trim());save();renderBoard();}};
+    wrap.appendChild(add);
+    sec.appendChild(wrap);b.appendChild(sec);
+  });
+  $('tally').textContent=done+' / '+total+' zones cleared';
+}
+
+function renderBattery(){
+  $('mealCount').textContent=S.meals;
+  const c=$('cells');c.innerHTML='';
+  for(let i=0;i<12;i++){
+    const d=document.createElement('div');
+    d.className='cell'+(i<S.meals?(S.meals<=2?' on low':' on'):'');
+    c.appendChild(d);
+  }
+  $('batteryCap').textContent=CAPS[S.mode];
+}
+
+function renderList(elId,arr,empty){
+  const ul=$(elId);ul.innerHTML='';
+  if(!arr.length){ul.innerHTML='<p class="empty">'+empty+'</p>';return;}
+  arr.forEach((it,i)=>{
+    const li=document.createElement('li');
+    if(it.done)li.className='done';
+    const tk=document.createElement('button');
+    tk.className='tick';tk.textContent='✓';
+    if(it.done)tk.style.cssText='background:var(--brass);border-color:var(--brass);color:#20242a';
+    tk.onclick=()=>{it.done=!it.done;save();renderAll();};
+    const sp=document.createElement('span');sp.textContent=it.t;
+    const dl=document.createElement('button');
+    dl.className='drop';dl.textContent='×';dl.setAttribute('aria-label','Remove');
+    dl.onclick=()=>{arr.splice(i,1);save();renderAll();};
+    li.append(tk,sp,dl);ul.appendChild(li);
+  });
+}
+
+function renderAll(){
+  const editing=document.body.dataset.edit==='1';
+  document.body.className=(S.mode==='floor'?'floor':(S.mode==='bank'?'bank':''))+(editing?' editing':'');
+  document.querySelectorAll('.mode').forEach(m=>m.setAttribute('aria-pressed',m.dataset.mode===S.mode));
+  $('modeNote').innerHTML=NOTES[S.mode];
+  $('dailySub').textContent=S.mode==='floor'
+    ? 'Load the dishwasher. Press start. That is the entire task.'
+    : 'Kitchen back to baseline — right after the cat is fed.';
+  $('daily').classList.toggle('done',S.daily.done);
+  renderBattery();
+  renderList('parkList',S.park,'Nothing parked. Good.');
+  renderList('bankList',S.bank,'Nothing queued. What would Floor you thank you for?');
+  renderBoard();
+}
+
+document.querySelectorAll('.mode').forEach(m=>m.onclick=()=>{S.mode=m.dataset.mode;save();renderAll();});
+$('mealUp').onclick=()=>{S.meals++;save();renderBattery();};
+$('mealDown').onclick=()=>{if(S.meals>0)S.meals--;save();renderBattery();};
+$('daily').onclick=()=>{S.daily={date:today(),done:!S.daily.done};save();renderAll();};
+$('parkAdd').onclick=()=>{const v=$('parkInput').value.trim();if(!v)return;S.park.push({t:v,done:false});$('parkInput').value='';save();renderAll();};
+$('parkInput').onkeydown=e=>{if(e.key==='Enter')$('parkAdd').click();};
+$('bankAdd').onclick=()=>{const v=$('bankInput').value.trim();if(!v)return;S.bank.push({t:v,done:false});$('bankInput').value='';save();renderAll();};
+$('bankInput').onkeydown=e=>{if(e.key==='Enter')$('bankAdd').click();};
+$('editBtn').onclick=()=>{
+  const on=document.body.dataset.edit!=='1';
+  document.body.dataset.edit=on?'1':'0';
+  $('editBtn').textContent=on?'Done editing':'Edit board';
+  renderAll();
+};
+$('resetBtn').onclick=()=>{
+  if(!confirm('Clear every check and start a fresh pass? Your zones, parking lot and freezer count stay.'))return;
+  S.done={};save();renderAll();
+};
+
+let left=30*60,tid=null,running=false;
+const fmt=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+function paint(){$('clock').textContent=fmt(left);}
+document.querySelectorAll('.dur').forEach(d=>d.onclick=()=>{
+  if(running)return;
+  S.dur=+d.dataset.min;left=S.dur*60;save();
+  document.querySelectorAll('.dur').forEach(x=>x.setAttribute('aria-pressed',x===d));
+  paint();
+});
+$('startBtn').onclick=()=>{
+  if(running){clearInterval(tid);running=false;$('startBtn').textContent='Start';$('clock').classList.remove('ringing');left=S.dur*60;paint();return;}
+  running=true;$('startBtn').textContent='Stop';$('clock').classList.remove('ringing');
+  const end=Date.now()+left*1000;
+  tid=setInterval(()=>{
+    left=Math.max(0,Math.round((end-Date.now())/1000));paint();
+    if(left<=0){
+      clearInterval(tid);running=false;$('startBtn').textContent='Start';
+      $('clock').classList.add('ringing');
+      $('target').innerHTML='<b>Pass complete.</b> Mark the zone and step away — it does not have to be perfect.';
+      try{const a=new(window.AudioContext||window.webkitAudioContext)(),o=a.createOscillator(),g=a.createGain();
+        o.connect(g);g.connect(a.destination);o.frequency.value=660;g.gain.setValueAtTime(.12,a.currentTime);
+        g.gain.exponentialRampToValueAtTime(.001,a.currentTime+1.2);o.start();o.stop(a.currentTime+1.2);}catch(e){}
+      if(navigator.vibrate)navigator.vibrate([200,100,200]);
+      left=S.dur*60;
+    }
+  },250);
+};
+$('pickBtn').onclick=()=>{
+  const open=[];
+  S.rooms.forEach(([n,zs],ri)=>zs.forEach(z=>{if(!S.done[ri+'|'+z])open.push([n,z,ri+'|'+z]);}));
+  if(!open.length){$('target').innerHTML='<b>Board is clear.</b> Every zone has had its pass.';return;}
+  const p=open[Math.floor(Math.random()*open.length)];
+  $('target').innerHTML='Next: <b>'+p[1]+'</b> — '+p[0];
+  document.querySelectorAll('.zone').forEach(z=>z.classList.remove('hint'));
+  const el=document.querySelector('.zone[data-k="'+CSS.escape(p[2])+'"]');
+  if(el){el.classList.add('hint');el.scrollIntoView({block:'center',behavior:'smooth'});}
+};
+
+load();
+</script>
+</body>
+</html>
